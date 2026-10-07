@@ -1,0 +1,36 @@
+name: Auto Compile
+
+on:
+  push:                # runs whenever you push code
+    branches:
+      - main           # only when pushing to main branch
+      - sample
+
+    paths:
+      - 'src/**'       # only if files under src/ change
+      - 'pom.xml'      # also if pom.xml changes
+
+  pull_request:        # runs when a PR is opened/updated
+    branches:
+      - main
+
+    paths:
+      - 'src/**'
+      - 'pom.xml'
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Compile Code
+        run: mvn compile

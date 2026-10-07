@@ -1,0 +1,487 @@
+{
+  "info": {
+    "_postman_id": "359a7556-8107-4d55-a799-70c0a9758f71",
+    "name": "SwaggerCollection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55447714",
+    "_collection_link": "https://go.postman.co/collection/55447714-359a7556-8107-4d55-a799-70c0a9758f71?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "BearerTokenRequest",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{BaseUrl}}/auth/token",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "auth",
+            "token"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetAllTokens",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseUrl}}/auth/active-tokens",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "auth",
+            "active-tokens"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetAllItems",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseUrl}}/items",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "items"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetHeadersRequest",
+      "request": {
+        "method": "HEAD",
+        "header": [],
+        "url": {
+          "raw": "{{BaseUrl}}/items",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "items"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "OptionsRequest",
+      "request": {
+        "method": "OPTIONS",
+        "header": [],
+        "url": {
+          "raw": "{{BaseUrl}}/items",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "items"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "AddIteamFromAPI",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Apples\",\r\n  \"quantity\":100,\r\n  \"price\": 30,\r\n  \"category\": \"fruits\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BaseUrl}}/items",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "items"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "AddIteamFromAPI",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Apples\",\r\n  \"quantity\":100,\r\n  \"price\": 30,\r\n  \"category\": \"fruits\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseUrl}}/items",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "items"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 201
+            },
+            {
+              "key": "date",
+              "value": "Tue, 09 Jun 2026 02:36:06 GMT"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "content-length",
+              "value": "85"
+            },
+            {
+              "key": "content-encoding",
+              "value": "br"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"69-VUDxHpk88G5RxBZTKl6eSsn9Tzw\""
+            },
+            {
+              "key": "rndr-id",
+              "value": "e872a395-b732-4206"
+            },
+            {
+              "key": "server",
+              "value": "cloudflare"
+            },
+            {
+              "key": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "x-render-origin-server",
+              "value": "Render"
+            },
+            {
+              "key": "cf-cache-status",
+              "value": "DYNAMIC"
+            },
+            {
+              "key": "cf-ray",
+              "value": "a08cbf2c7ecfb8fe-MAA"
+            },
+            {
+              "key": "alt-svc",
+              "value": "h3=\":443\"; ma=86400"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Item created\",\n    \"data\": {\n        \"id\": 15,\n        \"name\": \"Apples\",\n        \"quantity\": 100,\n        \"price\": 30,\n        \"category\": \"fruits\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "GetItemByID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseUrl}}/items/1",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "items",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetItemByID-Invalid",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseUrl}}/items/1000",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "items",
+            "1000"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SearchItemByID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseUrl}}/items/search?name=Apples&price=30",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "items",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "Apples"
+            },
+            {
+              "key": "price",
+              "value": "30"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SortAndPaginateItems",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseUrl}}/items/sort?key=name&order=asc",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "items",
+            "sort"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "name"
+            },
+            {
+              "key": "order",
+              "value": "asc",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SortAndPaginateItemsDescendingOrder",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseUrl}}/items/sort?key=name&order=desc",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "items",
+            "sort"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "name"
+            },
+            {
+              "key": "order",
+              "value": "desc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SortAndPaginateItemsLimit",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseUrl}}/items/sort?key=name&order=desc&limit=5",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "items",
+            "sort"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "name"
+            },
+            {
+              "key": "order",
+              "value": "desc"
+            },
+            {
+              "key": "limit",
+              "value": "5",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UpdateIteamFieldsByID",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\r\n  \"quantity\": 1000,\r\n  \"price\": 50\r\n  \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BaseUrl}}/items/1",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "items",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PutRequest",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Apples Pro\",\r\n  \"quantity\": 10,\r\n  \"price\": 5,\r\n  \"category\": \"non premium\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BaseUrl}}/items/1",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "items",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DeleteIteamByID",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{BaseUrl}}/items/1",
+          "host": [
+            "{{BaseUrl}}"
+          ],
+          "path": [
+            "items",
+            "1"
+          ],
+          "query": [
+            {
+              "key": "",
+              "value": null,
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "4e19bcc2e4812c28b5f21d06d4ab1202",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BaseUrl",
+      "value": ""
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Assignment28" parallel="classes">
+    <test name="Password Proof">
+        <classes>
+            <class name="supriya_kottam.TestNG.Assignment28"></class>
+            <class name="supriya_kottam.TestNG.Assignment27"></class>
+            <class name="supriya_kottam.TestNG.iframe_Assignment"></class>
+            <class name="supriya_kottam.TestNG.mouseover_Assignment"></class>
+        </classes>
+    </test>
+</suite>

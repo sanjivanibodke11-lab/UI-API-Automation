@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="loginPst">
+    <test name="login">
+        <classes>
+            <class name="Anusha.Selenium.loginPst"></class>
+            <class name="Anusha.Selenium.loginLogout"></class>
+        </classes>
+    </test>
+</suite>

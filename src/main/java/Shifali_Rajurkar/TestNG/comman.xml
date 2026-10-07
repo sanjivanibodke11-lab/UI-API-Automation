@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="assignment25">
+    <test name="assignment_25 Test Case">
+        <classes>
+            <class name="Shifali_Rajurkar.TestNG.assignment25"></class>
+            <class name="Shifali_Rajurkar.TestNG.assignment26"></class>
+            <class name="Shifali_Rajurkar.TestNG.assignment27"></class>
+            <class name="Shifali_Rajurkar.TestNG.assignment28"></class>
+        </classes>
+    </test>
+</suite>

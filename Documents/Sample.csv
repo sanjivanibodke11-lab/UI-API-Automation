@@ -1,0 +1,13 @@
+Test Case Name,Summary,Preconditions,Priority,Steps,Expected Result,Sprint
+TC001,Summary1,Preconditions to be able to test Test Case A effectively,High,"Step 1 (Something you need to test)
+",Expected Result (What you should expect to happen when you execute the steps),1
+TC002,Summary2,Preconditions to be able to test Test Case A effectively,High,"Step 1 (Something you need to test)
+",Expected Result (What you should expect to happen when you execute the steps),1
+TC003,Summary3,Preconditions to be able to test Test Case B effectively,Medium,"Step 1 (Something you need to test)
+",Expected Result (What you should expect to happen when you test all steps of Test Case B),1
+TC004,Summary4,Preconditions to be able to test Test Case C effectively,Low,"Step 1 (Something you need to test)
+",Expected Result (What you should expect to happen when you test all steps of Test Case C),1
+,,,,"Step 1 (Something you need to test)
+",,
+,,,,"Step 1 (Something you need to test)
+",,

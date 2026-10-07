@@ -1,0 +1,9 @@
+Test Case Name,Summary,Pre-Condition,Description,Environment,Expected Result,Actual Result
+TC001_Login_InvalidCredentials,Test the Login Functionality using Invalid Credentials,User should be present on the Login Screen and have Login Credentials,1. Open the Login Page. ,Dev,App should be opened,App should be opened
+,,,"2. Enter username as ""NIT730PM@gmail.com""  ",,Username should be entered,Username should be entered
+,,,"3. Enter Invalid password as ""?...""   ",,Password should be entered,Password should be entered
+,,,4. Click on login button,,User should not be able to login,User should not be able to login
+TC002_Login_ValidCredentials,Test the Login Functionality using valid Credentials,User should be present on the Login Screen and have Login Credentials,1. Open the Login Page. ,Dev,App should be opened,App should be opened
+,,,"2. Enter username as ""NIT730PM@gmail.com""  ",,Username should be entered,Username should be entered
+,,,"3. Enter Invalid password as ""?...""   ",,Password should be entered,Password should be entered
+,,,4. Click on login button,,User should not be able to login,User should be able to login

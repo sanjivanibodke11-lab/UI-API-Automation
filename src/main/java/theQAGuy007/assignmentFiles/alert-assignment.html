@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Selenium Alert Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function showAlert() {
+            alert("This is a simple alert!");
+        }
+
+        function showConfirm() {
+            let result = confirm("Do you want to continue?");
+            if (result) {
+                document.getElementById("output").innerText = "You clicked OK!";
+            } else {
+                document.getElementById("output").innerText = "You clicked Cancel!";
+            }
+        }
+
+        function showPrompt() {
+            let name = prompt("Please enter your name:", "Vamsi");
+            if (name != null && name !== "") {
+                document.getElementById("output").innerText = "Hello, " + name + "!";
+            } else {
+                document.getElementById("output").innerText = "No name entered.";
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>Selenium Alert Practice Page</h1>
+<p>Click the buttons below to trigger different types of alerts:</p>
+
+<button onclick="showAlert()">Show Alert</button>
+<button onclick="showConfirm()">Show Confirm</button>
+<button onclick="showPrompt()">Show Prompt</button>
+
+<p id="output" style="margin-top:20px; font-weight:bold;"></p>
+</body>
+</html>

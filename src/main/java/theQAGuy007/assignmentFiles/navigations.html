@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Working Multi-Level Navigation</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        ul { list-style-type: none; margin: 0; padding: 0; }
+        li { position: relative; }
+        nav ul { background: #333; }
+        nav ul li { display: inline-block; }
+        nav ul li a {
+          display: block;
+          padding: 10px 20px;
+          color: white;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        nav ul li a:hover { background: #444; }
+
+        /* Dropdown styling */
+        nav ul ul {
+          display: none;
+          position: absolute;
+          background: #444;
+          top: 100%;
+          left: 0;
+          min-width: 180px;
+        }
+        nav ul ul li { display: block; }
+        nav ul ul li a { color: #fff; }
+
+        /* Show dropdown on hover */
+        nav ul li:hover > ul { display: block; }
+
+        /* Nested levels */
+        nav ul ul ul {
+          left: 100%;
+          top: 0;
+        }
+        nav ul ul ul ul {
+          left: 100%;
+          top: 0;
+          background: #555;
+        }
+
+        #message {
+          margin-top: 20px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          background: #f9f9f9;
+          min-height: 30px;
+        }
+    </style>
+</head>
+<body>
+<h2>Multi-Level Navigation Menu</h2>
+<nav>
+    <ul>
+        <li><a onclick="showMessage('Home clicked')">Home</a></li>
+        <li>
+            <a onclick="showMessage('Products clicked')">Products</a>
+            <ul>
+                <li>
+                    <a onclick="showMessage('Electronics clicked')">Electronics</a>
+                    <ul>
+                        <li>
+                            <a onclick="showMessage('Mobile Phones clicked')">Mobile Phones</a>
+                            <ul>
+                                <li><a onclick="showMessage('Android clicked')">Android</a></li>
+                                <li><a onclick="showMessage('iOS clicked')">iOS</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a onclick="showMessage('Laptops clicked')">Laptops</a>
+                            <ul>
+                                <li><a onclick="showMessage('Gaming clicked')">Gaming</a></li>
+                                <li><a onclick="showMessage('Business clicked')">Business</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a onclick="showMessage('Clothing clicked')">Clothing</a>
+                    <ul>
+                        <li>
+                            <a onclick="showMessage('Men clicked')">Men</a>
+                            <ul>
+                                <li><a onclick="showMessage('Shirts clicked')">Shirts</a></li>
+                                <li><a onclick="showMessage('Jeans clicked')">Jeans</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a onclick="showMessage('Women clicked')">Women</a>
+                            <ul>
+                                <li><a onclick="showMessage('Dresses clicked')">Dresses</a></li>
+                                <li><a onclick="showMessage('Tops clicked')">Tops</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a onclick="showMessage('Services clicked')">Services</a>
+            <ul>
+                <li><a onclick="showMessage('Consulting clicked')">Consulting</a></li>
+                <li><a onclick="showMessage('Support clicked')">Support</a></li>
+            </ul>
+        </li>
+        <li><a onclick="showMessage('Contact clicked')">Contact</a></li>
+    </ul>
+</nav>
+
+<div id="message">Click a menu item to see a message here.</div>
+
+<script>
+    function showMessage(msg) {
+      document.getElementById('message').innerText = msg;
+    }
+</script>
+</body>
+</html>

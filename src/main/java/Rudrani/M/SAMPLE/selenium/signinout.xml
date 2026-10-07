@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="assignment25">
+    <test name="testloinout">
+        <classes>
+            <class name="Rudrani.M.SAMPLE.selenium.assignment25"></class>
+            <class name="Rudrani.M.SAMPLE.selenium.assignment26"></class>
+
+        </classes>
+    </test>
+</suite>

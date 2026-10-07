@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Path Params">
+    <test name="Path Params">
+        <classes>
+            <class name="APIAutomation.TestCases.TC04_PathParams"></class>
+        </classes>
+    </test>
+</suite>

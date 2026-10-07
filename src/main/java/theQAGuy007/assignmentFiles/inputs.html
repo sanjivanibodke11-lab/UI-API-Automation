@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice Form Elements</title>
+</head>
+<body>
+<h2>Radio Buttons</h2>
+<form>
+    <label>
+        <input type="radio" name="gender" value="male" checked>
+        Male (default checked)
+    </label><br>
+    <label>
+        <input type="radio" name="gender" value="female">
+        Female
+    </label><br>
+    <label>
+        <input type="radio" name="gender" value="other" disabled>
+        Other (disabled)
+    </label>
+</form>
+
+<h2>Checkboxes</h2>
+<form>
+    <label>
+        <input type="checkbox" id="subscribe" checked>
+        Subscribe (checked by default)
+    </label><br>
+    <label>
+        <input type="checkbox" id="terms">
+        Accept Terms
+    </label><br>
+    <label>
+        <input type="checkbox" id="offers" disabled>
+        Receive Offers (disabled)
+    </label>
+</form>
+
+<h2>Input Fields</h2>
+<form>
+    <label>
+        Username:
+        <input type="text" id="username" placeholder="Enter username">
+    </label><br>
+    <label>
+        Email:
+        <input type="email" id="email" value="test@example.com" readonly>
+    </label><br>
+    <label>
+        Password:
+        <input type="password" id="password">
+    </label><br>
+    <label>
+        Disabled Field:
+        <input type="text" id="disabledField" disabled value="Can't edit">
+    </label>
+</form>
+
+<h2>Dropdowns</h2>
+<form>
+    <label for="country">Country:</label>
+    <select id="country">
+        <option value="india" selected>India (selected)</option>
+        <option value="usa">USA</option>
+        <option value="uk" disabled>UK (disabled)</option>
+        <option value="canada">Canada</option>
+    </select>
+</form>
+
+<h2>Multi-Select Dropdown</h2>
+<form>
+    <label for="skills">Skills:</label>
+    <select id="skills" multiple>
+        <option value="java" selected>Java (selected)</option>
+        <option value="go">Go</option>
+        <option value="python">Python</option>
+        <option value="javascript" disabled>JavaScript (disabled)</option>
+    </select>
+</form>
+</body>
+</html>

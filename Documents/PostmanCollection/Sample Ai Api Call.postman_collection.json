@@ -1,0 +1,148 @@
+{
+  "info": {
+    "_postman_id": "8d89ebad-5d0f-4a75-889d-f2167bb89249",
+    "name": "Sample Ai Api Call",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54801606",
+    "_collection_link": "https://go.postman.co/collection/54801606-8d89ebad-5d0f-4a75-889d-f2167bb89249?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "SampleApi",
+      "request": {
+        "auth": {
+          "type": "apikey",
+          "apikey": [
+            {
+              "key": "value",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "key": "key",
+              "value": "x-goog-api-key",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"contents\": [{\r\n    \"parts\": [{\r\n      \"text\": \"Winner of indian general election of 2024\"\r\n    }]\r\n  }],\r\n  \"generationConfig\": {\r\n    \"temperature\": 0.7,\r\n    \"topK\": 40,\r\n    \"topP\": 0.95,\r\n    \"maxOutputTokens\": 1024,\r\n    \"responseMimeType\": \"text/plain\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+          "protocol": "https",
+          "host": [
+            "generativelanguage",
+            "googleapis",
+            "com"
+          ],
+          "path": [
+            "v1beta",
+            "models",
+            "gemini-2.5-flash:generateContent"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "SampleApi",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"contents\": [{\r\n    \"parts\": [{\r\n      \"text\": \"Winner of indian general election of 2024\"\r\n    }]\r\n  }],\r\n  \"generationConfig\": {\r\n    \"temperature\": 0.7,\r\n    \"topK\": 40,\r\n    \"topP\": 0.95,\r\n    \"maxOutputTokens\": 1024,\r\n    \"responseMimeType\": \"text/plain\"\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+              "protocol": "https",
+              "host": [
+                "generativelanguage",
+                "googleapis",
+                "com"
+              ],
+              "path": [
+                "v1beta",
+                "models",
+                "gemini-2.5-flash:generateContent"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 200
+            },
+            {
+              "key": "x-gemini-service-tier",
+              "value": "standard"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=UTF-8"
+            },
+            {
+              "key": "vary",
+              "value": "Origin, X-Origin, Referer"
+            },
+            {
+              "key": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "key": "date",
+              "value": "Mon, 01 Jun 2026 17:03:01 GMT"
+            },
+            {
+              "key": "server",
+              "value": "scaffolding on HTTPServer2"
+            },
+            {
+              "key": "content-length",
+              "value": "563"
+            },
+            {
+              "key": "x-xss-protection",
+              "value": "0"
+            },
+            {
+              "key": "x-frame-options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "key": "server-timing",
+              "value": "gfet4t7; dur=2715"
+            },
+            {
+              "key": "alt-svc",
+              "value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"candidates\": [\n        {\n            \"content\": {\n                \"parts\": [\n                    {\n                        \"text\": \"The **National Democratic Alliance (NDA)**, led by the **Bharatiya Janata Party (BJP)**, won the 2024 Indian General Election.\\n\\nAlthough the BJP did not achieve an absolute majority on its own (it won 240 seats), the NDA coalition collectively secured 293 seats, which is above the 272-seat simple majority required to form the government.\\n\\nNarendra Modi is set to be sworn in as Prime Minister for a third consecutive term.\"\n                    }\n                ],\n                \"role\": \"model\"\n            },\n            \"finishReason\": \"STOP\",\n            \"index\": 0\n        }\n    ],\n    \"usageMetadata\": {\n        \"promptTokenCount\": 11,\n        \"candidatesTokenCount\": 102,\n        \"totalTokenCount\": 334,\n        \"promptTokensDetails\": [\n            {\n                \"modality\": \"TEXT\",\n                \"tokenCount\": 11\n            }\n        ],\n        \"thoughtsTokenCount\": 221,\n        \"serviceTier\": \"standard\"\n    },\n    \"modelVersion\": \"gemini-2.5-flash\",\n    \"responseId\": \"Q7sdaqnlBYO9juMPu-344Aw\"\n}"
+        }
+      ]
+    }
+  ]
+}

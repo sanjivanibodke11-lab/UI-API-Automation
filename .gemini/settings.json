@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "playwright-automation": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp"
+      ],
+      "env": {
+        "PLAYWRIGHT_HEADLESS": "true"
+      }
+    }
+  }
+}

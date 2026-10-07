@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Table with Pagination, Sorting & Filters</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+        th, td { border: 1px solid #ccc; padding: 6px; text-align: left; }
+        th { cursor: pointer; background: #f2f2f2; position: relative; }
+        th .sort-icon { position: absolute; right: 6px; font-size: 0.8em; }
+        .controls { margin-bottom: 10px; }
+        .pagination { margin-top: 10px; }
+        .pagination button { margin: 2px; }
+        .filter { margin-top: 5px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+<h2>Big Table with Pagination, Sorting & Filtering</h2>
+
+<div class="controls">
+    Show
+    <select id="recordsPerPage">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select> records per page
+</div>
+
+<table id="dataTable">
+    <thead>
+    <tr>
+        <th data-col="name" data-type="text" data-sort="none">Name <span class="sort-icon"></span>
+            <div class="filter"><input type="text" id="nameFilter" placeholder="contains..."></div>
+        </th>
+        <th data-col="age" data-type="number" data-sort="none">Age <span class="sort-icon"></span>
+            <div class="filter">
+                <select id="ageOp">
+                    <option value="equals">=</option>
+                    <option value="lt">&lt;</option>
+                    <option value="gt">&gt;</option>
+                    <option value="ne">!=</option>
+                </select>
+                <input type="number" id="ageFilter" placeholder="value">
+            </div>
+        </th>
+        <th data-col="city" data-type="text" data-sort="none">City <span class="sort-icon"></span>
+            <div class="filter"><input type="text" id="cityFilter" placeholder="equals..."></div>
+        </th>
+        <th data-col="active" data-type="checkbox" data-sort="none">Active <span class="sort-icon"></span>
+            <div class="filter"><label><input type="checkbox" id="activeFilter"> Checked Only</label></div>
+        </th>
+    </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+</table>
+
+<div class="pagination">
+    <button id="firstPage">&laquo; First</button>
+    <button id="prevPage">&lsaquo; Prev</button>
+    <span id="pageInfo"></span>
+    <button id="nextPage">Next &rsaquo;</button>
+    <button id="lastPage">Last &raquo;</button>
+</div>
+
+<script>
+    // Random data generator
+    const cities = ["London","Paris","Berlin","Rome","Madrid","Lisbon","Dublin","Prague","Warsaw","Vienna"];
+    const names = ["Alice","Bob","Charlie","David","Eve","Frank","Grace","Hank","Ivy","Jack","Kara","Leo","Mona","Nina","Oscar","Paul","Quinn","Rita","Sam","Tina"];
+    const data = [];
+    for (let i=1; i<=500; i++) {
+      data.push({
+        name: names[Math.floor(Math.random()*names.length)] + i,
+        age: Math.floor(Math.random()*60) + 18,
+        city: cities[Math.floor(Math.random()*cities.length)],
+        active: Math.random() > 0.5
+      });
+    }
+
+    let currentPage = 1;
+    let recordsPerPage = 10;
+    let sortColumn = null;
+    let sortAsc = true;
+
+    const tableBody = document.getElementById("tableBody");
+    const pageInfo = document.getElementById("pageInfo");
+
+    function applyFilters(dataset) {
+      return dataset.filter(row => {
+        const nameVal = document.getElementById("nameFilter").value.toLowerCase();
+        if (nameVal && !row.name.toLowerCase().includes(nameVal)) return false;
+
+        const ageVal = document.getElementById("ageFilter").value;
+        const ageOp = document.getElementById("ageOp").value;
+        if (ageVal) {
+          const ageNum = parseInt(ageVal);
+          if (ageOp === "equals" && row.age !== ageNum) return false;
+          if (ageOp === "lt" && row.age >= ageNum) return false;
+          if (ageOp === "gt" && row.age <= ageNum) return false;
+          if (ageOp === "ne" && row.age === ageNum) return false;
+        }
+
+        const cityVal = document.getElementById("cityFilter").value.toLowerCase();
+        if (cityVal && row.city.toLowerCase() !== cityVal) return false;
+
+        if (document.getElementById("activeFilter").checked && !row.active) return false;
+
+        return true;
+      });
+    }
+
+    function renderTable() {
+      let filtered = applyFilters(data);
+
+      if (sortColumn) {
+        filtered.sort((a,b) => {
+          if (a[sortColumn] < b[sortColumn]) return sortAsc ? -1 : 1;
+          if (a[sortColumn] > b[sortColumn]) return sortAsc ? 1 : -1;
+          return 0;
+        });
+      }
+
+      const totalPages = Math.ceil(filtered.length / recordsPerPage);
+      if (currentPage > totalPages) currentPage = totalPages || 1;
+
+      const start = (currentPage-1) * recordsPerPage;
+      const end = start + recordsPerPage;
+      const pageData = filtered.slice(start,end);
+
+      tableBody.innerHTML = "";
+      pageData.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${row.name}</td>
+          <td>${row.age}</td>
+          <td>${row.city}</td>
+          <td><input type="checkbox" ${row.active ? "checked":""}></td>
+        `;
+        tableBody.appendChild(tr);
+      });
+
+      pageInfo.textContent = `Page ${currentPage} of ${totalPages} (Total records: ${filtered.length})`;
+    }
+
+    // Pagination
+    document.getElementById("firstPage").onclick = () => { currentPage=1; renderTable(); };
+    document.getElementById("prevPage").onclick = () => { if(currentPage>1){currentPage--; renderTable();} };
+    document.getElementById("nextPage").onclick = () => { currentPage++; renderTable(); };
+    document.getElementById("lastPage").onclick = () => {
+      const filtered = applyFilters(data);
+      currentPage = Math.ceil(filtered.length / recordsPerPage);
+      renderTable();
+    };
+
+    // Records per page
+    document.getElementById("recordsPerPage").onchange = e => {
+      recordsPerPage = parseInt(e.target.value);
+      currentPage = 1;
+      renderTable();
+    };
+
+    // Filters
+    document.querySelectorAll(".filter input, .filter select").forEach(el => {
+      el.oninput = renderTable;
+      el.onchange = renderTable;
+    });
+
+    // Sorting with icons and attributes
+    document.querySelectorAll("th").forEach(th => {
+      th.onclick = () => {
+        const col = th.getAttribute("data-col");
+        if (sortColumn === col) {
+          sortAsc = !sortAsc;
+        } else {
+          sortColumn = col;
+          sortAsc = true;
+        }
+        // Reset all headers
+        document.querySelectorAll("th").forEach(h => {
+          h.setAttribute("data-sort","none");
+          h.querySelector(".sort-icon").textContent = "";
+        });
+        // Set current header
+        th.setAttribute("data-sort", sortAsc ? "asc" : "desc");
+        th.querySelector(".sort-icon").textContent = sortAsc ? "▲" : "▼";
+        renderTable();
+      };
+    });
+
+    renderTable();
+</script>
+</body>
+</html>

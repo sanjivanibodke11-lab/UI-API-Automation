@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced XPath Challenge</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        section { border: 1px solid #ccc; margin: 15px; padding: 10px; }
+        h3 { margin-top: 0; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+<h2>XPath Advanced Playground</h2>
+
+<section>
+    <h3>Login Area</h3>
+    <div>
+        <label>Username:</label>
+        <!-- No attributes -->
+        <input>
+        <button>Login</button>
+        <!-- Invisible duplicate -->
+        <input class="hidden">
+        <button class="hidden">Login</button>
+    </div>
+</section>
+
+<section>
+    <h3>Profile Area</h3>
+    <div>
+        <div>
+            <label>Email:</label>
+            <input>
+            <!-- Duplicate sibling -->
+            <input class="hidden">
+        </div>
+        <div>
+            <label>Phone:</label>
+            <input>
+        </div>
+        <div>
+            <button>Update Profile</button>
+            <!-- Preceding hidden button -->
+            <button class="hidden">Update Profile</button>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h3>Settings Area</h3>
+    <div>
+        <div>
+            <label>Notifications:</label>
+            <input type="checkbox">
+            <input type="checkbox" class="hidden">
+        </div>
+        <div>
+            <label>Theme:</label>
+            <input type="radio" value="dark">
+            <input type="radio" value="light">
+            <input type="radio" class="hidden" value="ghostDark">
+        </div>
+        <div>
+            <button>Save Settings</button>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h3>Actions Area</h3>
+    <div>
+        <button>Action 1</button>
+        <button>Action 2</button>
+        <button>Action 3</button>
+        <!-- Hidden duplicates -->
+        <button class="hidden">Action 1</button>
+        <button class="hidden">Action 2</button>
+    </div>
+</section>
+</body>
+</html>

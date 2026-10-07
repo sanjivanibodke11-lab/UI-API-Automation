@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Axis Test for Email and Password">
+    <test name="passaxisGreater">
+        <classes>
+            <class name="Anusha.FrameWork.Testcases.axisTest"></class>
+        </classes>
+    </test>
+</suite>

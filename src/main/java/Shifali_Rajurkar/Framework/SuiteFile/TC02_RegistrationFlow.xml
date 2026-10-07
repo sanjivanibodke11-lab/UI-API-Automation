@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Select the Language">
+    <test name="TC01">
+        <classes>
+            <class name="Shifali_Rajurkar.Framework.Testcases.TC02_RegistrationFlow"></class>
+        </classes>
+    </test>
+</suite>

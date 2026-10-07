@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Query Params">
+    <test name="Query Params">
+        <classes>
+            <class name="APIAutomation.TestCases.TC03_QueryParams"></class>
+        </classes>
+    </test>
+</suite>

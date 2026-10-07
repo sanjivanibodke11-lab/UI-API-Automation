@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Selenium Test Cases">
+    <test name="Selenium">
+        <classes>
+            <class name="Selenium.cssSelector"></class>
+            <class name="Selenium.dropdown"></class>
+        </classes>
+    </test>
+</suite>

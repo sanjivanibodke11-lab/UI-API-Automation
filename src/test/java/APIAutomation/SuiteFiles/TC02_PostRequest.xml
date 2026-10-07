@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Post Request">
+    <test name="Post">
+        <classes>
+            <class name="APIAutomation.TestCases.TC02_PostRequest"></class>
+        </classes>
+    </test>
+</suite>

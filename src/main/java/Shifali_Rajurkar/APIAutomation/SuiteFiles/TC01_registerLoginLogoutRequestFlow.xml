@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Head Request">
+    <test name="Head">
+        <classes>
+            <class name="Shifali_Rajurkar.APIAutomation.TestCases.TC01_registerLoginLogoutRequestFlow"></class>
+        </classes>
+    </test>
+</suite>

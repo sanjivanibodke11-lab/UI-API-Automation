@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explicit Wait Practice Page (Randomized)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 50px;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        /* Loading Spinner Styles */
+        .spinner {
+            display: none;
+            margin: 20px auto;
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Target element style */
+        #success-message {
+            display: none;
+            color: #28a745;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        #timer-log {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Automation Practice</h1>
+    <p>Click the button below. The loading icon will stay active for a random time (up to 30 seconds)!</p>
+
+    <!-- Step 1: Click this button -->
+    <button id="populate-text" onclick="startLoading()">Start Loading Content</button>
+
+    <!-- Step 2: This spinner appears for a random amount of time -->
+    <div id="loader" class="spinner"></div>
+
+    <!-- Step 3: This text finally appears -->
+    <div id="success-message">WebDriverFactory directly loaded successfully!</div>
+
+    <!-- Optional: Logs the time for manual verification -->
+    <div id="timer-log"></div>
+</div>
+
+<script>
+    function startLoading() {
+        // Hide previous messages and show the loader
+        document.getElementById("success-message").style.display = "none";
+        document.getElementById("timer-log").innerText = "";
+        document.getElementById("loader").style.display = "block";
+
+        // Disable button so it can't be clicked twice
+        document.getElementById("populate-text").disabled = true;
+
+        // Generate a random time between 1 and 30 seconds
+        const randomSeconds = Math.floor(Math.random() * 30) + 1;
+        const randomMilliseconds = randomSeconds * 1000;
+
+        // Wait for the random duration before showing the final elements
+        setTimeout(function() {
+            styleChanges(randomSeconds);
+        }, randomMilliseconds);
+    }
+
+    function styleChanges(secondsSpent) {
+        // Hide the loader
+        document.getElementById("loader").style.display = "none";
+
+        // Show the success message
+        document.getElementById("success-message").style.display = "block";
+
+        // Show how long it took (helpful for debugging your script)
+        document.getElementById("timer-log").innerText = "(Loaded in " + secondsSpent + " seconds)";
+
+        // Re-enable the button
+        document.getElementById("populate-text").disabled = false;
+    }
+</script>
+
+</body>
+</html>

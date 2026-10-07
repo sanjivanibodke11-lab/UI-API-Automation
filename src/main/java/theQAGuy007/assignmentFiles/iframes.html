@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iframe Practice Playground</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        iframe { border: 2px solid #333; margin: 10px; }
+    </style>
+</head>
+<body>
+<h2>Iframe Practice Page</h2>
+
+<!-- Normal iframe -->
+<iframe srcdoc="
+    <html>
+      <body>
+        <h3>Iframe 1</h3>
+        <input placeholder='Input inside Iframe 1'>
+        <button>Button in Iframe 1</button>
+      </body>
+    </html>
+  " width="400" height="200"></iframe>
+
+<!-- Nested iframe structure -->
+<iframe srcdoc="
+    <html>
+      <body>
+        <h3>Iframe 1.1 (Parent)</h3>
+        <input placeholder='Input inside Iframe 1.1'>
+        <button>Button in Iframe 1.1</button>
+
+        <!-- Child iframe -->
+        <iframe srcdoc='
+          <html>
+            <body>
+              <h3>Iframe 1.2 (Child of 1.1)</h3>
+              <input placeholder=&quot;Input inside Iframe 1.2&quot;>
+              <button>Button in Iframe 1.2</button>
+
+              <!-- Deep nested iframe -->
+              <iframe srcdoc=&quot;
+                <html>
+                  <body>
+                    <h3>Iframe 1.2.1 (Nested inside 1.2)</h3>
+                    <input placeholder='Input inside Iframe 1.2.1'>
+                    <button>Button in Iframe 1.2.1</button>
+                  </body>
+                </html>
+              &quot; width='300' height='150'></iframe>
+            </body>
+          </html>
+        ' width='350' height='180'></iframe>
+      </body>
+    </html>
+  " width="450" height="250"></iframe>
+
+</body>
+</html>

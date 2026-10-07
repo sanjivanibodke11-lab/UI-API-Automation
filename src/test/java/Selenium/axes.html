@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XPath Axes Visual Demonstration</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        .ancestor-box { border: 3px solid #7f8c8d; padding: 15px; margin: 10px 0; background: #f5f6fa; }
+        .parent-box { border: 3px solid #2980b9; padding: 15px; margin: 10px 0; background: #ebf5fb; }
+        .sibling-box { border: 2px dashed #bdc3c7; padding: 10px; margin: 5px 0; }
+        .current-box { border: 4px solid #e74c3c; padding: 15px; background: #fadbd8; font-weight: bold; }
+        .child-box { border: 3px solid #27ae60; padding: 10px; margin: 5px 0; background: #e8f8f5; }
+        .descendant-box { border: 2px dotted #16a085; padding: 10px; margin: 5px 0; background: #eafaf1; }
+        code { background: #dfe4ea; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        h1, h2, h3 { margin-top: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- PRECEDING AXIS: Everything before the current element's starting tag      -->
+    <!-- ========================================================================= -->
+    <div class="sibling-box">
+        <h3>Preceding Element</h3>
+        <p>This is a <code>preceding</code> element. It comes entirely before the target's lineage.</p>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- ANCESTOR AXIS: The grandparents, great-grandparents, etc.                 -->
+    <!-- ========================================================================= -->
+    <div class="ancestor-box">
+        <h2>Grandparent Node (Ancestor)</h2>
+        <p>XPath: <code>//div[@id='target']/ancestor::div</code></p>
+
+        <!-- ===================================================================== -->
+        <!-- PARENT AXIS: The immediate supervisor/container                        -->
+        <!-- ===================================================================== -->
+        <div class="parent-box">
+            <h3>Parent Node</h3>
+            <p>XPath: <code>//div[@id='target']/parent::div</code></p>
+
+            <!-- ================================================================= -->
+            <!-- SIBLING AXIS (PRECEDING): Brothers/sisters before the target     -->
+            <!-- ================================================================= -->
+            <div class="sibling-box">
+                <h4>Older Brother (Preceding-Sibling)</h4>
+                <p>XPath: <code>//div[@id='target']/preceding-sibling::div</code></p>
+            </div>
+
+            <!-- ================================================================= -->
+            <!-- THE TARGET ELEMENT (The reference point for all axes)            -->
+            <!-- ================================================================= -->
+            <div id="target" class="current-box">
+                <h4>Target Element (Self)</h4>
+                <p>We are writing XPaths from this exact node: <code>//div[@id='target']</code></p>
+
+                <!-- ============================================================= -->
+                <!-- CHILD AXIS: Immediate direct descendants                      -->
+                <!-- ============================================================= -->
+                <div class="child-box">
+                    <h5>Direct Child Node</h5>
+                    <p>XPath: <code>//div[@id='target']/child::div</code></p>
+
+                    <!-- ========================================================= -->
+                    <!-- DESCENDANT AXIS: Grandchildren and deeper levels          -->
+                    <!-- ========================================================= -->
+                    <div class="descendant-box">
+                        <h6>Grandchild Node (Descendant)</h6>
+                        <p>XPath: <code>//div[@id='target']/descendant::div</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================================================================= -->
+            <!-- SIBLING AXIS (FOLLOWING): Brothers/sisters after the target      -->
+            <!-- ================================================================= -->
+            <div class="sibling-box">
+                <h4>Younger Sister (Following-Sibling)</h4>
+                <p>XPath: <code>//div[@id='target']/following-sibling::div</code></p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- FOLLOWING AXIS: Everything after the current element's closing tag        -->
+    <!-- ========================================================================= -->
+    <div class="sibling-box">
+        <h3>Following Element</h3>
+        <p>This is a <code>following</code> element. It comes entirely after the target's lineage closes.</p>
+    </div>
+
+</body>
+</html>
